@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>We playing today</title>
+    <style>
+    *{
+
+    }
+    .forms{
+      width:48%;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+    .forms label{
+      display: block;
+    }
+    .users{
+        width: 48%;
+        display: inline-block;
+        text-align: center;
+        padding: 10px;
+    }
+    .users fieldset{
+        margin-bottom: 75px;
+    }
+    .users p{
+      display: none;
+    }
+    </style>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('form').submit(function(){
+      $('.users').append('<fieldset><h2>' +
+        $('input[name="first"]').val()+
+        $('input[name="last"]').val()+'</h2><h4>'+
+        "Click here for Description"+'</h4><p>'+
+        $('input[name="dime"]').val()+"<br>" + "Click Me For the Name"+'</p></fieldset>');
+        return false;
+    })
+    $(document).on('click',"h4",function(){
+      $(this).siblings().toggle();
+      $('h4').hide();
+    })
+    $(document).on('click','p',function(){
+      $(this).siblings().toggle();
+      $('p').hide();
+    })
+  })
+  </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="forms">
+        <form>
+          <fieldset>
+            <legend>Contacts to ADD</legend>
+            <label>
+              First name:<input type="text" name="first" id="first">
+            </label>
+            <label>
+                Last Name:<input type="text" name="last" id="last">
+            </label>
+            <label>
+              Description: <input type="text" name="dime" placeholder="Tell Me some CHisme">
+            </label>
+            <input type="submit" name="submit" value="Add Pee-op-el">
+          </fieldset>
+        </form>
+      </div>
+      <div class= "users">
+      </div>
+    </div>
+  </body>
+</html>
